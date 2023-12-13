@@ -5,7 +5,7 @@ interface RadioProps {
     name?: string;
     label: string;
     checked: boolean;
-    setIsChecked: (value: boolean) => void;
+    setIsChecked: React.Dispatch<React.SetStateAction<boolean>>;
     className?: string;
 }
 

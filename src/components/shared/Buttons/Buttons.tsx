@@ -16,7 +16,7 @@ const Buttons: React.FC<ButtonProps> = ({ onClick, type, placeholder, icon, icon
     const selectedTheme = Themes[theme];
 
     return (
-        <div>
+        <div className='w-full px-2 md:px-4 lg:px-6 mt-2'>
             <button
                 type={type}
                 onClick={onClick}

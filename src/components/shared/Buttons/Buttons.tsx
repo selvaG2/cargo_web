@@ -1,6 +1,6 @@
 import React from 'react';
-import { ButtonTypes, iconPlaceTypes } from './types';
 import { Themes } from '../../../constants/thems';
+import { ButtonTypes, iconPlaceTypes } from '../../../types';
 
 interface ButtonProps {
     type?: ButtonTypes;

@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-
-type InputType = 'text' | 'password' | 'email' | 'number';
+import { InputType } from '../../../types';
 
 interface InputProps {
     setValue: (value: string) => void;

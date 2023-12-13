@@ -1,7 +1,7 @@
 import React from 'react';
-import { iconPlaceTypes } from './types';
 import { Link } from 'react-router-dom';
 import { Themes } from '../../../constants/thems';
+import { iconPlaceTypes } from '../../../types';
 
 interface LinkProps {
     theme?: keyof typeof Themes;

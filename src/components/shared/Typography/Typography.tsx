@@ -12,7 +12,7 @@ interface TypographyProps {
 const Typography: React.FC<TypographyProps> = ({ variant, className = '', children, as: Element = 'p' }) => {
   const classes = `${typographyVariant[variant]} ${className}`;
 
-  return <Element className={classes}>{children}</Element>;
+  return <Element className={`${classes} font-primary`}>{children}</Element>;
 };
 
 export default Typography;

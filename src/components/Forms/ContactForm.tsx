@@ -1,7 +1,6 @@
 import { useState } from "react";
 import InputField from "../shared/Inputs/Input";
 import FormHeader from "./FormsHeader/FormHeader";
-import Textarea from "../shared/Inputs/Textarea";
 import ToggleButton from "../shared/Inputs/Toggle";
 import Typography from "../shared/Typography/Typography";
 import Buttons from "../shared/Buttons/Buttons";
@@ -16,9 +15,27 @@ const ContactForm = () => {
     const [isChecked, setIsChecked] = useState(false);
 
 
+    const isDisabled = !firstName || !lastName || !email || !phoneNumber || !message || !isChecked;
+
+    const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const formData = {
+            firstName,
+            lastName,
+            email,
+            phoneNumber,
+            message,
+            isChecked
+        };
+
+        console.log(formData);
+    };
+
+    console.log("Reloaded");
 
     return (
-        <form >
+        <form onSubmit={(e) => handleFormSubmit(e)}>
             <FormHeader heading="Contact support" subHeading="contact support team by filling the form" />
 
             <div id="formInputs" className="container px-4 md:px-20 lg:px-40 xl:px-96 2xl:px-[30rem] mt-5 md:mt-8">
@@ -63,14 +80,15 @@ const ContactForm = () => {
                         labelClass="mt-4"
                     />
 
-                    <Textarea
+                    <InputField
                         setValue={setMessage}
                         value={message}
-                        label="Message"
+                        labelText="Message"
                         placeholder="Enter your message"
                         labelClass="mt-4"
                         rows={4}
-                    />
+                        type={"textarea"}
+                        isRequired={true} />
 
                     <div className="flex flex-row items-start px-1 mt-4 md:items-end md:mt-2">
                         <ToggleButton
@@ -89,7 +107,7 @@ const ContactForm = () => {
                             type="submit"
                             placeholder="Let's talk"
                             className="bg-indigo-600 text-white shadow-sm hover:text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-
+                            disabled={isDisabled}
                         />
                     </div>
 
